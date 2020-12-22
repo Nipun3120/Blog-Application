@@ -5,4 +5,5 @@ from main import views
 urlpatterns = [
     path('index/', views.index),
     path('mainpage/', login_required(views.home), name='home'),
+    path('signup/', views.signup, name='signup'),
 ]
