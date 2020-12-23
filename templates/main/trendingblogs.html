@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% include 'components/navbar.html' %}
+
+    <ul>    
+        {% for blog in allblogs %}
+
+        <li>
+            <a href="">{{ blog.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}

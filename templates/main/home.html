@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
     {% include 'components/navbar.html' %}
-    <h4>This is home page</h4>
+
+    <h4>Trending blogs</h4>
+    <a href="{% url 'trendingblogs' %}">Here</a>
 
 {% endblock %}

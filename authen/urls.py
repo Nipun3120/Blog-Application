@@ -4,4 +4,5 @@ from authen import views
 urlpatterns = [
     path('login/', views.Login.as_view(), name='authen_login'),
     path('logout', views.Logout.as_view(), name='authen_logout'),
+    path('signup/', views.signup, name='signup'),
 ]
