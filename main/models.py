@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-# Create your models here.
+
 
 
 class BlogTitle(models.Model):
@@ -17,3 +17,4 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.author
+        
