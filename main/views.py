@@ -2,8 +2,10 @@ from django.http import HttpResponse, request
 from django.shortcuts import render
 from django.core.exceptions import ImproperlyConfigured
 from django.views.generic import ListView, DetailView
-from main import models
+from django.contrib.auth.models import User
 
+# from main.models import Blog, BlogTitle
+from main import models
 def index(request):
     return render(request, 'main/index.html', {})
 
@@ -12,31 +14,47 @@ def home(request):
 
 
 
-class AllBlogList(ListView):
-    model = models.BlogTitle
-    template_name = 'main/trendingblogs.html'
-    context_object_name = 'allblogs'
-    
-    def queryset(self):
-        return models.BlogTitle.objects.order_by('title')
+def bloglist(request):
+    blog = models.Blog
+    context = {
+        'posts' : blog.objects.all(),
+    }
+    return render(request, 'main/trendingblogs.html', context)
 
-# class BlogDetail(DetailView):
-#     model_name = models.Blog
+
+
+
+def blog(request):
+    blog = models.Blog
+    context = {
+        'posts' : blog.objects.all(),
+    }
+    return render(request, 'main/blog.html', context)
+
+
+
+
+
+
+# class BlogDetail(DetailView, User):
+#     model = models.Blog 
 #     template_name = 'main/blog.html'
 #     context_object_name = 'object'
-
-#     def queryset(self):
-#         return models.BlogTitle.objects.order_by('title')
+    
+#     # queryset = models.BlogTitle.objects.order_by('content')
     
 
-class BlogDetail(DetailView):
-    model = models.Blog                 # not "model_name"
-    template_name = 'main/blog.html'
-    context_object_name = 'object'
-    
-    # queryset = models.BlogTitle.objects.order_by('content')
-    
+#     # def get_context_data(self, **kwargs):
+        
+#     #     qs = super().get_queryset()
+#     #     return super().get_context_data(qs)
 
-    def get_queryset(self):
-        qs = super().get_queryset()
-        return qs.order_by('category')
+#     #     # return qs.order_by('title')
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         # context['User'] = self.User
+#         context["category"] = "MISC"
+#         return context
+
+

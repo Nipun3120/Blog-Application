@@ -4,10 +4,10 @@
     {% include 'components/navbar.html' %}
 
     <ul>    
-        {% for blog in allblogs %}
+        {% for post in posts %}
 
         <li>
-            <a href="{% url 'blog' blog.pk %}">{{ blog.title }}</a>
+            <a href="{% url 'blog'  %}">{{ post.title }}</a>
         </li>
         {% endfor %}
     </ul>

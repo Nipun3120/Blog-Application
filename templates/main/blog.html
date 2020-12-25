@@ -3,8 +3,10 @@
 
     {% include 'components/navbar.html' %}
 
-    {{ object.title }}
-    {{ object.category }}
-    {{ object.content }}
+    {% for post in posts %}
+    {{ post.title }}
+    {{ post.category }}
+    {{ post.content }}
 
+    {% endfor %}
 {% endblock %}

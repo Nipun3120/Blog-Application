@@ -3,15 +3,16 @@ from django.contrib.auth.models import User
 
 
 
-class BlogTitle(models.Model):
-    title = models.CharField(max_length = 64)
+# class BlogTitle(models.Model):
+#     title = models.CharField(max_length = 64)
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.title
 
 class Blog(models.Model):
     author = models.CharField(max_length = 64, default = False)        
-    title = models.OneToOneField(BlogTitle, on_delete=models.CASCADE)
+    # title = models.OneToOneField(BlogTitle, on_delete=models.CASCADE)
+    title = models.CharField(max_length = 50)
     category = models.CharField(max_length = 64)
     content = models.TextField()
 

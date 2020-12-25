@@ -6,6 +6,6 @@ from main import models
 
 
 admin.site.register([
-    models.BlogTitle,
+    # models.BlogTitle,
     models.Blog,
 ])
